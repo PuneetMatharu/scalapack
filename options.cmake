@@ -22,6 +22,8 @@ if(BUILD_COMPLEX16)
 endif()
 
 option(find_lapack "find LAPACK" on)
+option(find_static "Find static library for Lapack (default shared then static search)" OFF)
+
 
 # used with Git submodule to avoid rechecking each build for submodule changes
 # for developers who switch submodule commits, need a fresh build of entire project.

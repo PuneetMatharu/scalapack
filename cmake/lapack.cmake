@@ -7,7 +7,13 @@ if(NOT PROJECT_IS_TOP_LEVEL)
 endif()
 
 if(find_lapack)
-  find_package(LAPACK)
+  set(REQUIRED_LAPACK_COMPONENTS ${LAPACK_VENDOR})
+
+  if(find_static)
+    list(APPEND REQUIRED_LAPACK_COMPONENTS STATIC)
+  endif()
+
+  find_package(LAPACK COMPONENTS ${REQUIRED_LAPACK_COMPONENTS})
 endif()
 
 if(LAPACK_FOUND)
